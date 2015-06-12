@@ -33,7 +33,7 @@
 }
 
 - (void)setMainBundle:(NSBundle*)mainBundle {
-    self.mainBundle = mainBundle;
+    _mainBundle = mainBundle;
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *presetLanguage = [userDefault objectForKey:LBLanguageManager_preset_language];
@@ -91,7 +91,11 @@
 - (NSString*)getLocalizedString:(NSString*)key {
     NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
-    return [self.localeBundle localizedStringForKey:key value:key table:nil];
+    if (self.localeBundle == nil) return key;
+    
+    NSString *string = [self.localeBundle localizedStringForKey:key value:key table:nil];
+    
+    return string.length > 0 ? string : key;
 }
 
 @end
