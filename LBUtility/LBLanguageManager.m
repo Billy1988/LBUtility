@@ -55,7 +55,7 @@
 }
 
 - (void)changeLanguage:(SCLanguageType)language {
-    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
     NSString *string = @"en";
     switch (language) {
@@ -83,13 +83,13 @@
 }
 
 - (SCLanguageType)getCurrentLanguage {
-    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
     return self.languageType;
 }
 
 - (NSString*)getLocalizedString:(NSString*)key {
-    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
     return [self.localeBundle localizedStringForKey:key value:key table:nil];
 }
