@@ -18,24 +18,10 @@ typedef NS_ENUM(NSInteger, InterfaceOrientationType) {
 
 + (InterfaceOrientationType)orientation;
 
-+ (NSString*)getStoredPushToken;
++ (NSUserDefaults*)getUserDefault;
 
 + (NSString*)getAppVersion;
 
 + (NSString*)getShortAppVersion;
-
-+ (NSString*)getAutoLoginEmail;
-
-+ (NSString*)getAutoLoginPassword;
-
-+ (void)storePushToken:(NSString*)token;
-
-+ (void)storeAutoLoginEmail:(NSString*)email;
-
-+ (void)storeAutoLoginPassword:(NSString*)password;
-
-+ (void)setupTextField:(UITextField*)textField padding:(CGFloat)padding;
-
-+ (void)setupView:(UIView*)view roundCorner:(CGFloat)round;
 
 @end

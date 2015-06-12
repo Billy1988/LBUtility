@@ -20,6 +20,8 @@ static NSString *LBLanguageManager_Language_change = @"LBLanguageManager_Languag
 
 + (LBLanguageManager*)sharedManager;
 
+- (void)setMainBundle:(NSBundle*)mainBundle;
+
 - (void)changeLanguage:(SCLanguageType)language;
 
 - (SCLanguageType)getCurrentLanguage;

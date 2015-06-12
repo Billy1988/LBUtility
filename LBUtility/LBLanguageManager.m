@@ -8,10 +8,11 @@
 
 #import "LBLanguageManager.h"
 
-#define swiftcam_language @"swiftcam_language"
+#define LBLanguageManager_preset_language @"LBLanguageManager_preset_language"
 
 @interface LBLanguageManager()
 
+@property (nonatomic, strong) NSBundle *mainBundle;
 @property (nonatomic, strong) NSBundle *localeBundle;
 
 @property (nonatomic, assign) SCLanguageType languageType;
@@ -31,31 +32,31 @@
     return _manager;
 }
 
-- (id)init {
-    if (self = [super init]) {
-        
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        NSString *presetLanguage = [userDefault objectForKey:swiftcam_language];
-        NSString *language = presetLanguage.length > 0 ? presetLanguage : [[NSLocale preferredLanguages] objectAtIndex:0];
-        NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
-        if (path) {
-            self.localeBundle = [NSBundle bundleWithPath:path];
-        } else {
-            self.localeBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"] ];
-        }
-        
-        if ([language isEqualToString:@"en"]) {
-            self.languageType = SCLanguageTypeEnglish;
-        } else if([language isEqualToString:@"zh-Hant"]) {
-            self.languageType = SCLanguageTypeChinese;
-        } else if([language isEqualToString:@"ja"]) {
-            self.languageType = SCLanguageTypeJapanese;
-        }
+- (void)setMainBundle:(NSBundle*)mainBundle {
+    self.mainBundle = mainBundle;
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *presetLanguage = [userDefault objectForKey:LBLanguageManager_preset_language];
+    NSString *language = presetLanguage.length > 0 ? presetLanguage : [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *path = [self.mainBundle pathForResource:language ofType:@"lproj"];
+    if (path) {
+        self.localeBundle = [NSBundle bundleWithPath:path];
+    } else {
+        self.localeBundle = [NSBundle bundleWithPath:[self.mainBundle pathForResource:@"en" ofType:@"lproj"] ];
     }
-    return self;
+    
+    if ([language isEqualToString:@"en"]) {
+        self.languageType = SCLanguageTypeEnglish;
+    } else if([language isEqualToString:@"zh-Hant"]) {
+        self.languageType = SCLanguageTypeChinese;
+    } else if([language isEqualToString:@"ja"]) {
+        self.languageType = SCLanguageTypeJapanese;
+    }
 }
 
 - (void)changeLanguage:(SCLanguageType)language {
+    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    
     NSString *string = @"en";
     switch (language) {
         default:
@@ -73,19 +74,23 @@
             break;
     }
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:string ofType:@"lproj"];
+    NSString *path = [self.mainBundle pathForResource:string ofType:@"lproj"];
     if (path) {
         self.localeBundle = [NSBundle bundleWithPath:path];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:string forKey:swiftcam_language];
+    [[NSUserDefaults standardUserDefaults] setObject:string forKey:LBLanguageManager_preset_language];
     [[NSNotificationCenter defaultCenter] postNotificationName:LBLanguageManager_Language_change object:nil];
 }
 
 - (SCLanguageType)getCurrentLanguage {
+    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    
     return self.languageType;
 }
 
 - (NSString*)getLocalizedString:(NSString*)key {
+    NSAssert(self.mainBundle == nil, @"Please call [setMainBundle] first!!");
+    
     return [self.localeBundle localizedStringForKey:key value:key table:nil];
 }
 
