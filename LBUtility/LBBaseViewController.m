@@ -59,17 +59,19 @@
 }
 
 - (void)showLoadingDialog:(NSString*)title message:(NSString*)message animated:(BOOL)animated {
-    if (self.loadingHUD == nil) {
-        self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:animated];
-        self.loadingHUD.mode = MBProgressHUDModeIndeterminate;
-        self.loadingHUD.color = UIColorWithARGB(0.8f, 0.2f, 0.2f, 0.2f);
+    if (self.loadingHUD != nil) {
+        [self.loadingHUD hide:NO];
+        self.loadingHUD = nil;
     }
+    
+    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:animated];
+    self.loadingHUD.mode = MBProgressHUDModeIndeterminate;
+    self.loadingHUD.color = UIColorWithARGB(0.8f, 0.2f, 0.2f, 0.2f);
     
     self.loadingHUD.labelText = title;
     if (message.length > 0) {
         self.loadingHUD.detailsLabelText = message;
     }
-    [self.loadingHUD show:animated];
 }
 
 - (void)dismissLoadingDialog:(BOOL)animated {
