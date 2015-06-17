@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    SCLanguageTypeEnglish,
-    SCLanguageTypeChinese,
-    SCLanguageTypeJapanese,
-} SCLanguageType;
+    LBLanguageTypeEnglish,
+    LBLanguageTypeChinese,
+    LBLanguageTypeJapanese,
+} LBLanguageType;
 
 static NSString *LBLanguageManager_Language_change = @"LBLanguageManager_Language_change";
 
@@ -22,9 +22,9 @@ static NSString *LBLanguageManager_Language_change = @"LBLanguageManager_Languag
 
 - (void)setMainBundle:(NSBundle*)mainBundle;
 
-- (void)changeLanguage:(SCLanguageType)language;
+- (void)changeLanguage:(LBLanguageType)language;
 
-- (SCLanguageType)getCurrentLanguage;
+- (LBLanguageType)getCurrentLanguage;
 
 - (NSString*)getLocalizedString:(NSString*)key;
 

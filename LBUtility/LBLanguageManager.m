@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSBundle *mainBundle;
 @property (nonatomic, strong) NSBundle *localeBundle;
 
-@property (nonatomic, assign) SCLanguageType languageType;
+@property (nonatomic, assign) LBLanguageType languageType;
 
 @end
 
@@ -46,30 +46,30 @@
     }
     
     if ([language isEqualToString:@"en"]) {
-        self.languageType = SCLanguageTypeEnglish;
+        self.languageType = LBLanguageTypeEnglish;
     } else if([language isEqualToString:@"zh-Hant"]) {
-        self.languageType = SCLanguageTypeChinese;
+        self.languageType = LBLanguageTypeChinese;
     } else if([language isEqualToString:@"ja"]) {
-        self.languageType = SCLanguageTypeJapanese;
+        self.languageType = LBLanguageTypeJapanese;
     }
 }
 
-- (void)changeLanguage:(SCLanguageType)language {
+- (void)changeLanguage:(LBLanguageType)language {
     NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
     NSString *string = @"en";
     switch (language) {
         default:
-        case SCLanguageTypeEnglish:
-            self.languageType = SCLanguageTypeEnglish;
+        case LBLanguageTypeEnglish:
+            self.languageType = LBLanguageTypeEnglish;
             string = @"en";
             break;
-        case SCLanguageTypeJapanese:
-            self.languageType = SCLanguageTypeJapanese;
+        case LBLanguageTypeJapanese:
+            self.languageType = LBLanguageTypeJapanese;
             string = @"ja";
             break;
-        case SCLanguageTypeChinese:
-            self.languageType = SCLanguageTypeChinese;
+        case LBLanguageTypeChinese:
+            self.languageType = LBLanguageTypeChinese;
             string = @"zh-Hant";
             break;
     }
@@ -82,7 +82,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:LBLanguageManager_Language_change object:nil];
 }
 
-- (SCLanguageType)getCurrentLanguage {
+- (LBLanguageType)getCurrentLanguage {
     NSAssert(self.mainBundle, @"Please call [setMainBundle] first!!");
     
     return self.languageType;
