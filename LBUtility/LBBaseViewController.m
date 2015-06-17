@@ -64,7 +64,7 @@
         self.loadingHUD = nil;
     }
     
-    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:animated];
+    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.navigationController ? self.navigationController.view : self.view animated:animated];
     self.loadingHUD.mode = MBProgressHUDModeIndeterminate;
     self.loadingHUD.color = UIColorWithARGB(0.8f, 0.2f, 0.2f, 0.2f);
     
@@ -80,7 +80,7 @@
 
 - (void)showProgressDialog:(NSString*)title message:(NSString*)message progress:(float)progress {
     if (self.progressHUD == nil) {
-        self.progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.progressHUD = [MBProgressHUD showHUDAddedTo:self.navigationController ? self.navigationController.view : self.view animated:YES];
         self.progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
         self.progressHUD.color = UIColorWithARGB(0.8f, 0.2f, 0.2f, 0.2f);
     }
@@ -90,7 +90,6 @@
         self.progressHUD.detailsLabelText = message;
     }
     self.progressHUD.progress = progress;
-    [self.progressHUD show:NO];
 }
 
 - (void)dismissProgressDialog:(BOOL)animated {
