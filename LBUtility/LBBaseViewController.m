@@ -97,7 +97,7 @@
 }
 
 - (void)dismissAllHUD:(BOOL)animated {
-    [MBProgressHUD hideAllHUDsForView:self.view animated:animated];
+    [MBProgressHUD hideAllHUDsForView:self.navigationController ? self.navigationController.view : self.view animated:animated];
 }
 
 - (void)showAlertOK:(NSString*)title message:(NSString*)message {
