@@ -69,6 +69,7 @@
     if (message.length > 0) {
         self.loadingHUD.detailsLabelText = message;
     }
+    [self.loadingHUD show:animated];
 }
 
 - (void)dismissLoadingDialog:(BOOL)animated {
@@ -87,6 +88,7 @@
         self.progressHUD.detailsLabelText = message;
     }
     self.progressHUD.progress = progress;
+    [self.progressHUD show:NO];
 }
 
 - (void)dismissProgressDialog:(BOOL)animated {
