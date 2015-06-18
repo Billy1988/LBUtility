@@ -14,6 +14,7 @@
 		1F5081931B2A7F8A00E8B8B3 /* LBLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50818A1B2A7F8A00E8B8B3 /* LBLanguageManager.m */; };
 		1F5081941B2A7F8A00E8B8B3 /* LBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50818D1B2A7F8A00E8B8B3 /* LBView.m */; };
 		1F5081951B2A7F8A00E8B8B3 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F50818F1B2A7F8A00E8B8B3 /* Utility.m */; };
+		1FE93A401B32BF530042CAAB /* LBAnalogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE93A3F1B32BF530042CAAB /* LBAnalogView.m */; };
 		709DBC44D6FF362307E6D041 /* libPods-LBUtility.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 337A6AE935F20E47833E870D /* libPods-LBUtility.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		1F50818D1B2A7F8A00E8B8B3 /* LBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBView.m; sourceTree = "<group>"; };
 		1F50818E1B2A7F8A00E8B8B3 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		1F50818F1B2A7F8A00E8B8B3 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		1FE93A3E1B32BF530042CAAB /* LBAnalogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAnalogView.h; sourceTree = "<group>"; };
+		1FE93A3F1B32BF530042CAAB /* LBAnalogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAnalogView.m; sourceTree = "<group>"; };
 		337A6AE935F20E47833E870D /* libPods-LBUtility.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LBUtility.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8424D3D431B58F6F4943568E /* Pods-LBUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBUtility.release.xcconfig"; path = "Pods/Target Support Files/Pods-LBUtility/Pods-LBUtility.release.xcconfig"; sourceTree = "<group>"; };
 		873C7B8C9DACD7B4ED80BAAF /* Pods-LBUtility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LBUtility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LBUtility/Pods-LBUtility.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 		1F5081821B2A7F8A00E8B8B3 /* LBUtility */ = {
 			isa = PBXGroup;
 			children = (
+				1FE93A3E1B32BF530042CAAB /* LBAnalogView.h */,
+				1FE93A3F1B32BF530042CAAB /* LBAnalogView.m */,
 				1F5081831B2A7F8A00E8B8B3 /* LBBaseViewController.h */,
 				1F5081841B2A7F8A00E8B8B3 /* LBBaseViewController.m */,
 				1F5081851B2A7F8A00E8B8B3 /* LBButton.h */,
@@ -292,6 +297,7 @@
 				1F5081901B2A7F8A00E8B8B3 /* LBBaseViewController.m in Sources */,
 				1F5081911B2A7F8A00E8B8B3 /* LBButton.m in Sources */,
 				1F5081921B2A7F8A00E8B8B3 /* LBImageView.m in Sources */,
+				1FE93A401B32BF530042CAAB /* LBAnalogView.m in Sources */,
 				1F5081931B2A7F8A00E8B8B3 /* LBLanguageManager.m in Sources */,
 				1F5081951B2A7F8A00E8B8B3 /* Utility.m in Sources */,
 				1F5081941B2A7F8A00E8B8B3 /* LBView.m in Sources */,
