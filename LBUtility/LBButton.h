@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
 
+@property (nonatomic, assign) IBInspectable BOOL verticalAlignTextAndImage;
+
 @end
