@@ -20,8 +20,8 @@ typedef NS_ENUM(NSInteger, InterfaceOrientationType) {
 
 + (NSUserDefaults*)getUserDefault;
 
-+ (NSString*)getAppVersion;
++ (NSString*)getAppVersion:(NSBundle*)bundle;
 
-+ (NSString*)getShortAppVersion;
++ (NSString*)getShortAppVersion:(NSBundle*)bundle;
 
 @end

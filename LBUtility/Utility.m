@@ -31,13 +31,11 @@
     return [NSUserDefaults standardUserDefaults];
 }
 
-+ (NSString*)getAppVersion {
-    NSBundle *bundle = [NSBundle mainBundle];
++ (NSString*)getAppVersion:(NSBundle *)bundle {
     return bundle.infoDictionary[@"CFBundleShortVersionString"];
 }
 
-+ (NSString*)getShortAppVersion {
-    NSBundle *bundle = [NSBundle mainBundle];
++ (NSString*)getShortAppVersion:(NSBundle *)bundle {
     return bundle.infoDictionary[@"CFBundleVersion"];
 }
 
