@@ -26,4 +26,10 @@
 
 #define UIColorWithARGB(a, r, g, b) [UIColor colorWithRed:r green:g blue:b alpha:a]
 
+#ifdef DEBUG
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...) /* */
+#endif
+
 #endif
