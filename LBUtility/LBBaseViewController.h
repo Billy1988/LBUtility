@@ -40,6 +40,8 @@ typedef void(^AlertButtonHandler)(UIAlertAction *action);
 
 - (void)showAlertOK:(NSString*)title message:(NSString*)message handler:(AlertButtonHandler)handler;
 
+- (void)showAlertOK:(NSString*)title message:(NSString*)message buttonText:(NSString*)button handler:(AlertButtonHandler)handler;
+
 - (void)showAlert:(NSString*)title
           message:(NSString*)message
        buttonText:(NSString*)buttonText

@@ -108,6 +108,10 @@
     [self showAlert:title message:message buttons:@[[AlertButton initWithText:@"OK" handler:handler]]];
 }
 
+- (void)showAlertOK:(NSString*)title message:(NSString*)message buttonText:(NSString*)button handler:(AlertButtonHandler)handler {
+    [self showAlert:title message:message buttons:@[[AlertButton initWithText:button handler:handler]]];
+}
+
 - (void)showAlert:(NSString*)title
           message:(NSString*)message
        buttonText:(NSString*)buttonText
