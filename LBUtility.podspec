@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LBUtility"
-  s.version          = "1.2.2"
+  s.version          = "1.2.3"
   s.summary          = "Utility for iOS development"
   s.homepage         = "https://github.com/Billy1988/LBUtility"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

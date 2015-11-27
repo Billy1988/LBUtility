@@ -69,18 +69,15 @@
     CGPoint dir;
     dir.x = touchPoint.x - self.mCenter.x;
     dir.y = touchPoint.y - self.mCenter.y;
-    double len = sqrt(dir.x * dir.x + dir.y * dir.y);
     
-    if (fabs(len) <= 100.0f) {
-        dir.x = touchPoint.x - self.joystick.frame.size.width / 2.0f;
-        dir.y = touchPoint.y - self.joystick.frame.size.height / 2.0f;
-        
-        [self stickMoveTo:dir];
-        
-        CGPoint movement = CGPointMake(touchPoint.x - self.mCenter.x, touchPoint.y - self.mCenter.y);
-        
-        [self notifyDirection:movement];
-    }
+    dir.x = touchPoint.x - self.joystick.frame.size.width / 2.0f;
+    dir.y = touchPoint.y - self.joystick.frame.size.height / 2.0f;
+    
+    [self stickMoveTo:dir];
+    
+    CGPoint movement = CGPointMake(touchPoint.x - self.mCenter.x, touchPoint.y - self.mCenter.y);
+    
+    [self notifyDirection:movement];
 
 }
 
